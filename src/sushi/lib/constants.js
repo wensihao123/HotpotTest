@@ -90,10 +90,10 @@ export const supportedPools = [
     tokenAddresses: {
       3: '0x64bf48384C484a1dA5e1749Daef138733736D7Fb',
     },
-    name: 'rUSDT Pool',
+    name: 'Uncle Sam Dumpling',
     symbol: 'rUSDT LP',
     tokenSymbol: 'rUSDT',
-    icon: '🐌',
+    icon: '🥟',
   },
   {
     pid: 2,
