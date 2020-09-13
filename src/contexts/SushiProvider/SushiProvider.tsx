@@ -29,7 +29,7 @@ const SushiProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     if (ethereum) {
-      const chainId = Number(ethereum.chainId)
+      const chainId = 3 //*Changed mainnet to ropsten
       const sushiLib = new Sushi(ethereum, chainId, false, {
         defaultAccount: ethereum.selectedAddress,
         defaultConfirmations: 1,

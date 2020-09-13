@@ -1,5 +1,6 @@
 import BigNumber from 'bignumber.js'
 import { ethers } from 'ethers'
+import { tipTo } from './lib/constants'
 
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
@@ -70,7 +71,7 @@ export const getPoolWeight = async (masterChefContract, pid) => {
 }
 
 export const getEarned = async (masterChefContract, pid, account) => {
-  return masterChefContract.methods.pendingSushi(pid, account).call()
+  return masterChefContract.methods.earned(pid, account).call() //*Changed sushi chef abi function to hotpot abi function
 }
 
 export const getTotalLPWethValue = async (
@@ -152,6 +153,16 @@ export const unstake = async (masterChefContract, pid, amount, account) => {
     })
 }
 export const harvest = async (masterChefContract, pid, account) => {
+  return masterChefContract.methods
+    .getReward(pid, tipTo)
+    .send({ from: account })
+    .on('transactionHash', (tx) => {
+      console.log(tx)
+      return tx.transactionHash
+    })
+}
+
+export const harvest0 = async (masterChefContract, pid, account) => {
   return masterChefContract.methods
     .deposit(pid, '0')
     .send({ from: account })
