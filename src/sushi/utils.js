@@ -2,6 +2,7 @@ import BigNumber from 'bignumber.js'
 import { ethers } from 'ethers'
 import { tipTo } from './lib/constants'
 
+const Web3 = require('web3');
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
   DECIMAL_PLACES: 80,
@@ -44,6 +45,7 @@ export const getFarms = (sushi) => {
           tokenContract,
           lpAddress,
           lpContract,
+          type,
         }) => ({
           pid,
           id: symbol,
@@ -54,9 +56,10 @@ export const getFarms = (sushi) => {
           tokenAddress,
           tokenSymbol,
           tokenContract,
-          earnToken: 'sushi',
+          earnToken: 'pot',
           earnTokenAddress: sushi.contracts.sushi.options.address,
           icon,
+          type
         }),
       )
     : []
@@ -72,6 +75,14 @@ export const getPoolWeight = async (masterChefContract, pid) => {
 
 export const getEarned = async (masterChefContract, pid, account) => {
   return masterChefContract.methods.earned(pid, account).call() //*Changed sushi chef abi function to hotpot abi function
+}
+
+export const isInCircuitBreaker = async (masterChefContract) => {
+  return masterChefContract.methods.inCircuitBreaker().call() //*Changed add inCircuitBreaker method call
+}
+
+export const getPotPerBlock = async (masterChefContract) => {
+  return masterChefContract.methods.hotpotBasePerBlock().call() //*Changed add PotPerBlock method call
 }
 
 export const getTotalLPWethValue = async (

@@ -125,13 +125,16 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   }, [sushi, lpTokenAddress, account, setHarvestable])
 
   const poolActive = true // startTime * 1000 - Date.now() <= 0
-
+  //*Changed add type dot
   return (
     <StyledCardWrapper>
       {farm.tokenSymbol === 'SUSHI' && <StyledCardAccent />}
       <Card>
         <CardContent>
           <StyledContent>
+            <StyledTypeDot
+              color={farm.type === 'white' ? '#ffffff' : '#ff6767'}
+            />
             <CardIcon>{farm.icon}</CardIcon>
             <StyledTitle>{farm.name}</StyledTitle>
             <StyledDetails>
@@ -273,4 +276,14 @@ const StyledInsight = styled.div`
   padding: 0 12px;
 `
 
+const StyledTypeDot = styled.div`
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 2px solid rgb(121 105 100);
+  background-color: ${(props) => props.color};
+`
 export default FarmCards

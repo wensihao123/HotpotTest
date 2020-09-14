@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
+// *Changed sushi nav to pot nav
 const Nav: React.FC = () => {
   return (
     <StyledNav>
@@ -11,15 +12,12 @@ const Nav: React.FC = () => {
       <StyledLink exact activeClassName="active" to="/farms">
         Menu
       </StyledLink>
-      <StyledLink exact activeClassName="active" to="/staking">
-        Staking
-      </StyledLink>
-      <StyledAbsoluteLink
+      {/* <StyledAbsoluteLink
         href="https://medium.com/sushiswap/the-sushiswap-project-c4049ea9941e"
         target="_blank"
       >
         About
-      </StyledAbsoluteLink>
+      </StyledAbsoluteLink> */}
     </StyledNav>
   )
 }

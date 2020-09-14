@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+// *Changed sushi nav to pot nav
 const Nav: React.FC = () => {
   return (
     <StyledNav>
@@ -14,7 +15,7 @@ const Nav: React.FC = () => {
         target="_blank"
         href="https://uniswap.info/pair/0xce84867c3c02b05dc570d0135103d3fb9cc19433"
       >
-        Uniswap SUSHI-ETH
+        POT Token
       </StyledLink>
       <StyledLink target="_blank" href="https://discord.gg/hJ2p555">
         Discord
@@ -30,6 +31,7 @@ const Nav: React.FC = () => {
 }
 
 const StyledNav = styled.nav`
+  pointer-events: none;
   align-items: center;
   display: flex;
 `

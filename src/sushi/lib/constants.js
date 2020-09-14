@@ -40,10 +40,10 @@ export const addressMap = {
 
 export const contractAddresses = {
   sushi: {
-    3: '0xD8eF1a5c3aAE91C97AC97e895A2b2477d30ca746',
+    3: '0x759472D80851A7Df6Bc57AFAc4941614E756d331',
   },
   masterChef: {
-    3: '0xcEf4DC22FB281dBb7eA19A161368879eF642f41E',
+    3: '0x62De147CCAFe5E928eD9B2e404bCb4dFA6BEFafD',
   },
   weth: {
     3: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
@@ -77,10 +77,11 @@ export const supportedPools = [
     tokenAddresses: {
       3: '0xD8eF1a5c3aAE91C97AC97e895A2b2477d30ca746',
     },
-    name: 'POT Pool',
-    symbol: 'POT LP',
-    tokenSymbol: 'POT',
-    icon: '🐢',
+    name: 'HGB Pool',
+    symbol: 'HGB LP',
+    tokenSymbol: 'HGB',
+    icon: '🥘',
+    type: 'white'
   },
   {
     pid: 1,
@@ -93,7 +94,8 @@ export const supportedPools = [
     name: 'Uncle Sam Dumpling',
     symbol: 'rUSDT LP',
     tokenSymbol: 'rUSDT',
-    icon: '🥟',
+    icon: '🥣',
+    type: 'white'
   },
   {
     pid: 2,
@@ -106,7 +108,22 @@ export const supportedPools = [
     name: 'rWETH Pool',
     symbol: 'rWETH LP',
     tokenSymbol: 'rWETH',
-    icon: '🦆',
+    icon: '🍛',
+    type: 'white'
+  },
+  {
+    pid: 3,
+    lpAddresses: {
+      3: '0x759472D80851A7Df6Bc57AFAc4941614E756d331',
+    },
+    tokenAddresses: {
+      3: '0x759472D80851A7Df6Bc57AFAc4941614E756d331',
+    },
+    name: 'rPOT Pool',
+    symbol: 'rPOT LP',
+    tokenSymbol: 'rPOT',
+    icon: '🍲',
+    type: 'red'
   },
 ]
 

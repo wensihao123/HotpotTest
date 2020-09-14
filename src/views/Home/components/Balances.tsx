@@ -14,8 +14,8 @@ import useAllStakedValue from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import useSushi from '../../../hooks/useSushi'
-import { getSushiAddress, getSushiSupply } from '../../../sushi/utils'
-import { getBalanceNumber } from '../../../utils/formatBalance'
+import { getSushiAddress, getSushiSupply, getPotPerBlock, getMasterChefContract } from '../../../sushi/utils'
+import { getBalanceNumber, getDisplayBalance } from '../../../utils/formatBalance'
 
 const PendingRewards: React.FC = () => {
   const [start, setStart] = useState(0)
@@ -71,20 +71,24 @@ const PendingRewards: React.FC = () => {
 
 const Balances: React.FC = () => {
   const [totalSupply, setTotalSupply] = useState<BigNumber>()
+  const [potPerBlock, setPotPerBlock] = useState<BigNumber>()
   const sushi = useSushi()
   const sushiBalance = useTokenBalance(getSushiAddress(sushi))
+  const masterChefContract = getMasterChefContract(sushi)
   const { account, ethereum }: { account: any; ethereum: any } = useWallet()
 
   useEffect(() => {
     async function fetchTotalSupply() {
       const supply = await getSushiSupply(sushi)
+      const potPerBlock = await getPotPerBlock(masterChefContract)
       setTotalSupply(supply)
+      setPotPerBlock(potPerBlock)
     }
     if (sushi) {
       fetchTotalSupply()
     }
   }, [sushi, setTotalSupply])
-
+  //*Changed balance card text
   return (
     <StyledWrapper>
       <Card>
@@ -94,7 +98,7 @@ const Balances: React.FC = () => {
               <SushiIcon />
               <Spacer />
               <div style={{ flex: 1 }}>
-                <Label text="Your SUSHI Balance" />
+                <Label text="Your POT Balance" />
                 <Value
                   value={!!account ? getBalanceNumber(sushiBalance) : 'Locked'}
                 />
@@ -103,9 +107,9 @@ const Balances: React.FC = () => {
           </StyledBalances>
         </CardContent>
         <Footnote>
-          Pending harvest
+          In Staking
           <FootnoteValue>
-            <PendingRewards /> SUSHI
+            <PendingRewards /> POT
           </FootnoteValue>
         </Footnote>
       </Card>
@@ -113,14 +117,14 @@ const Balances: React.FC = () => {
 
       <Card>
         <CardContent>
-          <Label text="Total SUSHI Supply" />
+          <Label text="Total POT Supply" />
           <Value
             value={totalSupply ? getBalanceNumber(totalSupply) : 'Locked'}
           />
         </CardContent>
         <Footnote>
           New rewards per block
-          <FootnoteValue>1,000 SUSHI</FootnoteValue>
+          <FootnoteValue>{potPerBlock ? getBalanceNumber(new BigNumber(potPerBlock)) : 'Locked'} POT</FootnoteValue>
         </Footnote>
       </Card>
     </StyledWrapper>

@@ -14,7 +14,9 @@ import ModalContent from '../../ModalContent'
 import ModalTitle from '../../ModalTitle'
 import Spacer from '../../Spacer'
 import Value from '../../Value'
+import pot from '../../../assets/img/hotpot.png'
 
+// *Changed sushi token to pot token
 const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
   const { account, reset } = useWallet()
 
@@ -35,21 +37,34 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
         <div style={{ display: 'flex' }}>
           <StyledBalanceWrapper>
             <CardIcon>
-              <span>🍣</span>
+              <span
+                style={{
+                  display: 'flex',
+                }}
+              >
+                <img
+                  alt="pot"
+                  src={pot}
+                  style={{
+                    width: 36,
+                    height: 36,
+                  }}
+                />
+              </span>
             </CardIcon>
             <StyledBalance>
               <Value value={getBalanceNumber(sushiBalance)} />
-              <Label text="SUSHI Balance" />
+              <Label text="POT Balance" /> {/* *Changed */}
             </StyledBalance>
           </StyledBalanceWrapper>
         </div>
 
         <Spacer />
         <Button
-          href={`https://etherscan.io/address/${account}`}
+          href={`https://ropsten.etherscan.io/address/${account}`} 
           text="View on Etherscan"
           variant="secondary"
-        />
+        /> {/* *Changed mainnet to ropsten*/}
         <Spacer />
         <Button
           onClick={handleSignOutClick}

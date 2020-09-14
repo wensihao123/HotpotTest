@@ -1,5 +1,6 @@
 import { Contract } from 'web3-eth-contract'
 
+//* Changed add pool type
 export interface Farm {
   pid: number
   name: string
@@ -12,6 +13,7 @@ export interface Farm {
   icon: React.ReactNode
   id: string
   tokenSymbol: string
+  type?: string
 }
 
 export interface FarmsContext {

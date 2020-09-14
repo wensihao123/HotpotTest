@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import chef from '../../assets/img/chef.png'
+import pot from '../../assets/img/hotpot.png'
 import Button from '../../components/Button'
 import Container from '../../components/Container'
 import Page from '../../components/Page'
@@ -8,13 +8,14 @@ import PageHeader from '../../components/PageHeader'
 import Spacer from '../../components/Spacer'
 import Balances from './components/Balances'
 
+//*Changed home page text
 const Home: React.FC = () => {
   return (
     <Page>
       <PageHeader
-        icon={<img src={chef} height={120} />}
-        title="MasterChef is Ready"
-        subtitle="Stake Uniswap LP tokens to claim your very own yummy SUSHI!"
+        icon={<img src={pot} height={120} />}
+        title="YuanYangPot is Boiling"
+        subtitle="Stake eligible tokens to claim your Hotpot Base Token (POT)!"
       />
 
       <Container>
@@ -22,8 +23,7 @@ const Home: React.FC = () => {
       </Container>
       <Spacer size="lg" />
       <StyledInfo>
-        🏆<b>Pro Tip</b>: SUSHI-ETH UNI-V2 LP token pool yields TWICE more token
-        rewards per block.
+        🏆<b>Pro Tip</b>: Food in Red soup have dedicated share of token rewards, don't miss them.
       </StyledInfo>
       <Spacer size="lg" />
       <div
@@ -31,7 +31,7 @@ const Home: React.FC = () => {
           margin: '0 auto',
         }}
       >
-        <Button text="🔪 See the Menu" to="/farms" variant="secondary" />
+        <Button text="📝 See the Menu" to="/farms" variant="secondary" />
       </div>
     </Page>
   )

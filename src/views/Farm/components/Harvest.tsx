@@ -8,7 +8,9 @@ import Label from '../../../components/Label'
 import Value from '../../../components/Value'
 import useEarnings from '../../../hooks/useEarnings'
 import useReward from '../../../hooks/useReward'
+import usePoolState from '../../../hooks/usePoolState'
 import { getBalanceNumber } from '../../../utils/formatBalance'
+import pot from '../../../assets/img/hotpot.png'
 
 interface HarvestProps {
   pid: number
@@ -16,22 +18,32 @@ interface HarvestProps {
 
 const Harvest: React.FC<HarvestProps> = ({ pid }) => {
   const earnings = useEarnings(pid)
+  const isInCircuitBreaker = usePoolState()
   const [pendingTx, setPendingTx] = useState(false)
   const { onReward } = useReward(pid)
-
+  //*Changed sushi logo to pot logo
   return (
     <Card>
       <CardContent>
         <StyledCardContentInner>
           <StyledCardHeader>
-            <CardIcon>🍣</CardIcon>
+            <CardIcon>
+              <img
+                alt="pot"
+                src={pot}
+                style={{
+                  width: 40,
+                  height: 40,
+                }}
+              />
+            </CardIcon>
             <Value value={getBalanceNumber(earnings)} />
-            <Label text="SUSHI Earned" />
+            <Label text="POT Earned" />
           </StyledCardHeader>
           <StyledCardActions>
             <Button
-              disabled={!earnings.toNumber() || pendingTx}
-              text={pendingTx ? 'Collecting SUSHI' : 'Harvest'}
+              disabled={!earnings.toNumber() || pendingTx || isInCircuitBreaker}
+              text={isInCircuitBreaker ? " In Circuit Breaker" : pendingTx ? 'Collecting SUSHI' : 'Harvest'}
               onClick={async () => {
                 setPendingTx(true)
                 await onReward()
