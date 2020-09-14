@@ -11,6 +11,8 @@ const StyledCard = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
 `
 
 export default Card

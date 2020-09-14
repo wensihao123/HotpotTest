@@ -132,9 +132,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
       <Card>
         <CardContent>
           <StyledContent>
-            <StyledTypeDot
-              color={farm.type === 'white' ? '#ffffff' : '#ff6767'}
-            />
+            {farm.type === 'red' ? <StyledTypeDot>🌶️</StyledTypeDot> : null}
             <CardIcon>{farm.icon}</CardIcon>
             <StyledTitle>{farm.name}</StyledTitle>
             <StyledDetails>
@@ -278,12 +276,7 @@ const StyledInsight = styled.div`
 
 const StyledTypeDot = styled.div`
   position: absolute;
-  right: 12px;
-  top: 12px;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  border: 2px solid rgb(121 105 100);
-  background-color: ${(props) => props.color};
+  right: 14px;
+  font-size: 24px;
 `
 export default FarmCards
