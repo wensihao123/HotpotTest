@@ -128,13 +128,19 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   //*Changed add type dot
   return (
     <StyledCardWrapper>
-      {farm.tokenSymbol === 'SUSHI' && <StyledCardAccent />}
+      {/* {farm.tokenSymbol === 'rPOT' && <StyledCardAccent />} */}
       <Card>
         <CardContent>
           <StyledContent>
             {farm.type === 'red' ? <StyledTypeDot>🌶️</StyledTypeDot> : null}
             <CardIcon>{farm.icon}</CardIcon>
-            <StyledTitle>{farm.name}</StyledTitle>
+            <StyledTitle>
+              <div
+                style={{ color: farm.type === 'red' ? '#dc0909' : 'inherit' }}
+              >
+                {farm.name}
+              </div>
+            </StyledTitle>
             <StyledDetails>
               <StyledDetail>Deposit {farm.lpToken.toUpperCase()}</StyledDetail>
               <StyledDetail>Earn {farm.earnToken.toUpperCase()}</StyledDetail>
