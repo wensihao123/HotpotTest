@@ -77,7 +77,7 @@ const Farm: React.FC = () => {
         </StyledCardsWrapper>
         <Spacer size="lg" />
         <StyledInfo>
-          ⭐️Every time you pick up earned HPOT, the contract will send extra
+          ⭐️Every time you pick up earned POT, the contract will send extra
           tips to the shop owner! Join the Franchise
         </StyledInfo>
         <Spacer size="lg" />

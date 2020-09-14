@@ -8,15 +8,15 @@ export const green = {
 export const red = {
   100: '#FFFDFE',
   200: '#ffc2a8',
-  500: '#d16c00',
+  500: '#d11300',
 }
 
 export const grey = {
-  100: '#f7f4f2',
-  200: '#f0e9e7',
-  300: '#e2d6cf',
-  400: '#aa9585',
+  100: '#efbbaf',
+  200: '#efc4b9',
+  300: '#e0ada1',
+  400: '#6f5b4c',
   500: '#805e49',
-  600: '#5b3926',
+  600: '#5f2d11',
   800: '#2d1e12',
 }
