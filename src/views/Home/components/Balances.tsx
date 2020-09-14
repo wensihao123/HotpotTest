@@ -107,7 +107,7 @@ const Balances: React.FC = () => {
           </StyledBalances>
         </CardContent>
         <Footnote>
-          In Staking
+          Pending Harvest
           <FootnoteValue>
             <PendingRewards /> POT
           </FootnoteValue>
@@ -117,13 +117,13 @@ const Balances: React.FC = () => {
 
       <Card>
         <CardContent>
-          <Label text="Total POT Supply" />
+          <Label text="Current POT Supply" />
           <Value
             value={totalSupply ? getBalanceNumber(totalSupply) : 'Locked'}
           />
         </CardContent>
         <Footnote>
-          New rewards per block
+          New Rewards per Block
           <FootnoteValue>{potPerBlock ? getBalanceNumber(new BigNumber(potPerBlock)) : 'Locked'} POT</FootnoteValue>
         </Footnote>
       </Card>

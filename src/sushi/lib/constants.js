@@ -78,9 +78,9 @@ export const supportedPools = [
       3: '0xD8eF1a5c3aAE91C97AC97e895A2b2477d30ca746',
     },
     name: 'HGB Pool',
-    symbol: 'HGB LP',
+    symbol: 'HGB',
     tokenSymbol: 'HGB',
-    icon: '🥘',
+    icon: '🥔',
     type: 'white'
   },
   {
@@ -92,9 +92,9 @@ export const supportedPools = [
       3: '0x64bf48384C484a1dA5e1749Daef138733736D7Fb',
     },
     name: 'Uncle Sam Dumpling',
-    symbol: 'rUSDT LP',
+    symbol: 'rUSDT',
     tokenSymbol: 'rUSDT',
-    icon: '🥣',
+    icon: '🥕',
     type: 'white'
   },
   {
@@ -106,9 +106,9 @@ export const supportedPools = [
       3: '0xe210eE4bae1DFbaF11305D94DBCFE878bDB8C09d',
     },
     name: 'rWETH Pool',
-    symbol: 'rWETH LP',
+    symbol: 'rWETH',
     tokenSymbol: 'rWETH',
-    icon: '🍛',
+    icon: '🍆',
     type: 'white'
   },
   {
@@ -120,9 +120,23 @@ export const supportedPools = [
       3: '0x759472D80851A7Df6Bc57AFAc4941614E756d331',
     },
     name: 'rPOT Pool',
-    symbol: 'rPOT LP',
+    symbol: 'rPOT',
     tokenSymbol: 'rPOT',
-    icon: '🍲',
+    icon: '🍖',
+    type: 'red'
+  },
+  {
+    pid: 4,
+    lpAddresses: {
+      3: '0x3F17f8599B78870CD618E4B6C1DA2e517782c5dd',
+    },
+    tokenAddresses: {
+      3: '0x759472D80851A7Df6Bc57AFAc4941614E756d331',
+    },
+    name: 'UNI Pool',
+    symbol: 'rUSDT-rPOT UNI-V2',
+    tokenSymbol: 'UNI-V2',
+    icon: '🥓',
     type: 'red'
   },
 ]

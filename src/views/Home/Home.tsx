@@ -15,7 +15,7 @@ const Home: React.FC = () => {
       <PageHeader
         icon={<img src={pot} height={120} />}
         title="YuanYangPot is Boiling"
-        subtitle="Stake eligible tokens to claim your Hotpot Base Token (POT)!"
+        subtitle="Stake eligible tokens to claim Hotpot Base Tokens (POT)!"
       />
 
       <Container>
@@ -23,7 +23,7 @@ const Home: React.FC = () => {
       </Container>
       <Spacer size="lg" />
       <StyledInfo>
-        🏆<b>Pro Tip</b>: Food in Red soup have dedicated share of token rewards, don't miss them.
+        <b>Pro Tip</b>: Foods in 🌶️ Red soup have dedicated portion of POT rewards, go get them!
       </StyledInfo>
       <Spacer size="lg" />
       <div
@@ -31,7 +31,7 @@ const Home: React.FC = () => {
           margin: '0 auto',
         }}
       >
-        <Button text="📝 See the Menu" to="/farms" variant="secondary" />
+        <Button text="📝 View Menu" to="/farms" variant="secondary" />
       </div>
     </Page>
   )

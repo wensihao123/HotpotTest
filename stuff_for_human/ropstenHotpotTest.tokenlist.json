@@ -1,0 +1,36 @@
+{
+    "name": "RopstenHotpot2",
+    "logoURI": "ipfs://QmUSNbwUxUYNMvMksKypkgWs8unSm8dX2GjCPBVGZ7GGMr",
+    "keywords": [
+      "audited",
+      "verified",
+      "special tokens"
+    ],
+    "tags": {},
+    "timestamp": "2020-09-14T00:00:00+00:00",
+    "tokens": [
+      {
+        "chainId": 3,
+        "address": "0x64bf48384c484a1da5e1749daef138733736d7fb",
+        "symbol": "rUSDT",
+        "name": "Ropsten Tether",
+        "decimals": 18,
+        "logoURI": "ipfs://QmXfzKRvjZz3u5JRgC4v5mGVbm9ahrUiB4DgzHBsnWbTMM",
+        "tags": []
+      },
+      {
+        "chainId": 3,
+        "address": "0x759472d80851a7df6bc57afac4941614e756d331",
+        "symbol": "rPOT",
+        "name": "Hotpot Base Token",
+        "decimals": 18,
+        "logoURI": "ipfs://QmUSNbwUxUYNMvMksKypkgWs8unSm8dX2GjCPBVGZ7GGMr",
+        "tags": []
+      }
+    ],
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0
+    }
+  }  

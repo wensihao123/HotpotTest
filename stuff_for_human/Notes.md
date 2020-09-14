@@ -9,3 +9,8 @@ YuanYangPot.poolInfo[3].isRed == true
 * When YuanYangPot in Circuit Breaker Mode (YuanYangPot.inCircuitBreaker == true)
 * Display a warning on each pool page "POT harvesting is suspended during Circuit Breaker period."
 * Grey-out "Harvest" button.
+
+## Ropsten Uniswap
+URL (Add Liquidity): https://app.uniswap.org/#/add/0x64bf48384C484a1dA5e1749Daef138733736D7Fb/0x759472D80851A7Df6Bc57AFAc4941614E756d331
+
+Customed Token List: ipfs://QmaR4F6DSrMBwXfJ6K9QZ7qrQX65HTDKbUVWExd4JxNsbe
