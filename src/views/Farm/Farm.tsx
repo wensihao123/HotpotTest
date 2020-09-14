@@ -77,8 +77,8 @@ const Farm: React.FC = () => {
         </StyledCardsWrapper>
         <Spacer size="lg" />
         <StyledInfo>
-          ⭐️ Every time you stake and unstake LP tokens, the contract will
-          automagically harvest SUSHI rewards for you!
+          ⭐️Every time you pick up earned HPOT, the contract will send extra
+          tips to the shop owner! Join the Franchise
         </StyledInfo>
         <Spacer size="lg" />
       </StyledFarm>
