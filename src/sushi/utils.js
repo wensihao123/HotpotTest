@@ -165,7 +165,7 @@ export const unstake = async (masterChefContract, pid, amount, account) => {
 }
 export const harvest = async (masterChefContract, pid, account) => {
   return masterChefContract.methods
-    .getReward(pid, tipTo)
+    .ClaimReward(pid, tipTo)
     .send({ from: account })
     .on('transactionHash', (tx) => {
       console.log(tx)
