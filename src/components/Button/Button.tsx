@@ -43,14 +43,14 @@ const Button: React.FC<ButtonProps> = ({
   switch (size) {
     case 'sm':
       boxShadow = `4px 4px 8px ${color.grey[300]},
-        -8px -8px 16px ${color.grey[100]}FF;`
+      inset 2px 2px 4px -1px ${color.grey[100]}FF;`
       buttonPadding = spacing[3]
       buttonSize = 36
       fontSize = 14
       break
     case 'lg':
       boxShadow = `6px 6px 12px ${color.grey[300]},
-        -12px -12px 24px ${color.grey[100]}ff;`
+      inset 2px 2px 4px ${color.grey[100]}ff;`
       buttonPadding = spacing[4]
       buttonSize = 72
       fontSize = 16
@@ -58,7 +58,7 @@ const Button: React.FC<ButtonProps> = ({
     case 'md':
     default:
       boxShadow = `6px 6px 12px ${color.grey[300]},
-        -12px -12px 24px -2px ${color.grey[100]}ff;`
+        inset 2px 2px 4px -1px ${color.grey[100]}ff;`
       buttonPadding = spacing[4]
       buttonSize = 56
       fontSize = 16

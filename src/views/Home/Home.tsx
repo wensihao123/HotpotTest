@@ -14,7 +14,7 @@ const Home: React.FC = () => {
     <Page>
       <PageHeader
         icon={<img src={pot} height={120} />}
-        title="YuanYangPot is Boiling"
+        title="Hotpot is Boiling"
         subtitle="Stake eligible tokens to claim Hotpot Base Tokens (POT)!"
       />
 

@@ -77,7 +77,7 @@ export const supportedPools = [
     tokenAddresses: {
       3: '0xD8eF1a5c3aAE91C97AC97e895A2b2477d30ca746',
     },
-    name: 'HGB Pool',
+    name: 'Plain Potato',
     symbol: 'HGB',
     tokenSymbol: 'HGB',
     icon: '🥔',
@@ -91,10 +91,10 @@ export const supportedPools = [
     tokenAddresses: {
       3: '0x64bf48384C484a1dA5e1749Daef138733736D7Fb',
     },
-    name: 'Uncle Sam Dumpling',
-    symbol: 'rUSDT',
-    tokenSymbol: 'rUSDT',
-    icon: '🥕',
+    name: "Uncle Sam's Corn",
+    symbol: 'USDT',
+    tokenSymbol: 'USDT',
+    icon: '🌽',
     type: 'white'
   },
   {
@@ -105,9 +105,9 @@ export const supportedPools = [
     tokenAddresses: {
       3: '0xe210eE4bae1DFbaF11305D94DBCFE878bDB8C09d',
     },
-    name: 'rWETH Pool',
-    symbol: 'rWETH',
-    tokenSymbol: 'rWETH',
+    name: 'Wrapped Eggplant',
+    symbol: 'WETH',
+    tokenSymbol: 'WETH',
     icon: '🍆',
     type: 'white'
   },
@@ -119,10 +119,10 @@ export const supportedPools = [
     tokenAddresses: {
       3: '0x759472D80851A7Df6Bc57AFAc4941614E756d331',
     },
-    name: 'rPOT Pool',
-    symbol: 'rPOT',
-    tokenSymbol: 'rPOT',
-    icon: '🍖',
+    name: 'Double Boiling Pot',
+    symbol: 'POT',
+    tokenSymbol: 'POT',
+    icon: '🍲',
     type: 'red'
   },
   {
@@ -133,10 +133,10 @@ export const supportedPools = [
     tokenAddresses: {
       3: '0x759472D80851A7Df6Bc57AFAc4941614E756d331',
     },
-    name: 'UNI Pool',
-    symbol: 'rUSDT-rPOT UNI-V2',
+    name: 'Mala Lobster',
+    symbol: 'USDT-POT UNI-V2',
     tokenSymbol: 'UNI-V2',
-    icon: '🥓',
+    icon: '🦞',
     type: 'red'
   },
 ]
