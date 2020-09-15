@@ -14,8 +14,16 @@ import useAllStakedValue from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import useSushi from '../../../hooks/useSushi'
-import { getSushiAddress, getSushiSupply, getPotPerBlock, getMasterChefContract } from '../../../sushi/utils'
-import { getBalanceNumber, getDisplayBalance } from '../../../utils/formatBalance'
+import {
+  getSushiAddress,
+  getSushiSupply,
+  getPotPerBlock,
+  getMasterChefContract,
+} from '../../../sushi/utils'
+import {
+  getBalanceNumber,
+  getDisplayBalance,
+} from '../../../utils/formatBalance'
 
 const PendingRewards: React.FC = () => {
   const [start, setStart] = useState(0)
@@ -31,14 +39,14 @@ const PendingRewards: React.FC = () => {
   }
 
   const [farms] = useFarms()
-  const allStakedValue = useAllStakedValue()
-
-  if (allStakedValue && allStakedValue.length) {
-    const sumWeth = farms.reduce(
-      (c, { id }, i) => c + (allStakedValue[i].totalWethValue.toNumber() || 0),
-      0,
-    )
-  }
+  // const allStakedValue = useAllStakedValue()
+  // console.log(allStakedValue)
+  // if (allStakedValue && allStakedValue.length) {
+  //   const sumWeth = farms.reduce(
+  //     (c, { id }, i) => c + (allStakedValue[i].totalWethValue.toNumber() || 0),
+  //     0,
+  //   )
+  // }
 
   useEffect(() => {
     setStart(end)
@@ -124,7 +132,12 @@ const Balances: React.FC = () => {
         </CardContent>
         <Footnote>
           New Rewards per Block
-          <FootnoteValue>{potPerBlock ? getBalanceNumber(new BigNumber(potPerBlock)) : 'Locked'} POT</FootnoteValue>
+          <FootnoteValue>
+            {potPerBlock
+              ? getBalanceNumber(new BigNumber(potPerBlock))
+              : 'Locked'}{' '}
+            POT
+          </FootnoteValue>
         </Footnote>
       </Card>
     </StyledWrapper>
