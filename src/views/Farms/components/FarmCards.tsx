@@ -128,7 +128,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   //*Changed add type dot
   return (
     <StyledCardWrapper>
-      {/* {farm.tokenSymbol === 'rPOT' && <StyledCardAccent />} */}
+      {farm.type === 'red' && <StyledCardAccent />}
       <Card>
         <CardContent>
           <StyledContent>
@@ -181,20 +181,20 @@ const RainbowLight = keyframes`
 const StyledCardAccent = styled.div`
   background: linear-gradient(
     45deg,
-    rgba(255, 0, 0, 1) 0%,
-    rgba(255, 154, 0, 1) 10%,
-    rgba(208, 222, 33, 1) 20%,
-    rgba(79, 220, 74, 1) 30%,
-    rgba(63, 218, 216, 1) 40%,
-    rgba(47, 201, 226, 1) 50%,
-    rgba(28, 127, 238, 1) 60%,
-    rgba(95, 21, 242, 1) 70%,
-    rgba(186, 12, 248, 1) 80%,
-    rgba(251, 7, 217, 1) 90%,
-    rgba(255, 0, 0, 1) 100%
+    rgba(255, 0, 60, 1) 0%,
+    rgba(255, 0, 20, 1) 10%,
+    rgba(255, 20, 0, 1) 20%,
+    rgba(255, 60, 0, 1) 30%,
+    rgba(255, 100, 0, 1) 40%,
+    rgba(255, 140, 0, 1) 50%,
+    rgba(255, 100, 0, 1) 60%,
+    rgba(255, 60, 0, 1) 70%,
+    rgba(255, 20, 0, 1) 80%,
+    rgba(255, 0, 20, 1) 90%,
+    rgba(255, 0, 60, 1) 100%
   );
   background-size: 300% 300%;
-  animation: ${RainbowLight} 2s linear infinite;
+  animation: ${RainbowLight} 3s linear infinite;
   border-radius: 12px;
   filter: blur(6px);
   position: absolute;
