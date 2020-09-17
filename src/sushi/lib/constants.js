@@ -85,7 +85,8 @@ export const supportedPools = [
     symbol: 'USDT',
     tokenSymbol: 'USDT',
     icon: '🌽',
-    type: 'white'
+    type: 'white',
+    decimal: 6
   },
   {
     pid: 1,
@@ -99,7 +100,8 @@ export const supportedPools = [
     symbol: 'WETH',
     tokenSymbol: 'WETH',
     icon: '🍆',
-    type: 'white'
+    type: 'white',
+    decimal: 18
   },
   {
     pid: 2,
@@ -113,7 +115,8 @@ export const supportedPools = [
     symbol: 'POT',
     tokenSymbol: 'POT',
     icon: '🍲',
-    type: 'red'
+    type: 'red',
+    decimal: 18
   },
   {
     pid: 3,
@@ -127,7 +130,8 @@ export const supportedPools = [
     symbol: 'USDT-POT UNI-V2',
     tokenSymbol: 'UNI-V2',
     icon: '🦞',
-    type: 'red'
+    type: 'red',
+    decimal: 18
   },
 ]
 

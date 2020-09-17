@@ -8,12 +8,14 @@ import TokenInput from '../../../components/TokenInput'
 import { getFullDisplayBalance } from '../../../utils/formatBalance'
 
 interface DepositModalProps extends ModalProps {
+  decimal: number
   max: BigNumber
   onConfirm: (amount: string) => void
   tokenName?: string
 }
 
 const DepositModal: React.FC<DepositModalProps> = ({
+  decimal,
   max,
   onConfirm,
   onDismiss,
@@ -53,8 +55,9 @@ const DepositModal: React.FC<DepositModalProps> = ({
           disabled={pendingTx}
           text={pendingTx ? 'Pending Confirmation' : 'Confirm'}
           onClick={async () => {
+            const valNumber = (Number(val) / (10 ** (18 - decimal))).toString()
             setPendingTx(true)
-            await onConfirm(val)
+            await onConfirm(valNumber)
             setPendingTx(false)
             onDismiss()
           }}

@@ -23,6 +23,7 @@ const Farm: React.FC = () => {
     earnToken,
     name,
     icon,
+    decimal
   } = useFarm(farmId) || {
     pid: 0,
     lpToken: '',
@@ -31,6 +32,7 @@ const Farm: React.FC = () => {
     earnToken: '',
     name: '',
     icon: '',
+    decimal: 18
   }
 
   useEffect(() => {
@@ -69,6 +71,7 @@ const Farm: React.FC = () => {
           <Spacer />
           <StyledCardWrapper>
             <Stake
+              decimal={decimal}
               lpContract={lpContract}
               pid={pid}
               tokenName={lpToken.toUpperCase()}

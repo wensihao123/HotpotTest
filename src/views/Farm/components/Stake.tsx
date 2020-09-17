@@ -22,25 +22,35 @@ import DepositModal from './DepositModal'
 import WithdrawModal from './WithdrawModal'
 
 interface StakeProps {
+  decimal: number
   lpContract: Contract
   pid: number
   tokenName: string
 }
 
-const Stake: React.FC<StakeProps> = ({ lpContract, pid, tokenName }) => {
+const Stake: React.FC<StakeProps> = ({
+  decimal,
+  lpContract,
+  pid,
+  tokenName,
+}) => {
   const [requestedApproval, setRequestedApproval] = useState(false)
 
   const allowance = useAllowance(lpContract)
   const { onApprove } = useApprove(lpContract)
-
-  const tokenBalance = useTokenBalance(lpContract.options.address)
-  const stakedBalance = useStakedBalance(pid)
+  const tokenBalance = useTokenBalance(lpContract.options.address).times(
+    new BigNumber(10).exponentiatedBy(18 - decimal),
+  )
+  const stakedBalance = useStakedBalance(pid).times(
+    new BigNumber(10).exponentiatedBy(18 - decimal),
+  )
 
   const { onStake } = useStake(pid)
   const { onUnstake } = useUnstake(pid)
 
   const [onPresentDeposit] = useModal(
     <DepositModal
+      decimal={decimal}
       max={tokenBalance}
       onConfirm={onStake}
       tokenName={tokenName}

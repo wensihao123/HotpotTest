@@ -14,6 +14,7 @@ export interface Farm {
   id: string
   tokenSymbol: string
   type?: string
+  decimal?: number
 }
 
 export interface FarmsContext {
