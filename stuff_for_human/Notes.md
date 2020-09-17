@@ -1,11 +1,14 @@
 ## Calculating APY (Annualized Percentage Yield)
 
-lpSupply = lpToken.balanceOf(address(YuanYangPot));
-lpValue = lpSupply * pool.lpPrice / pool.lpDecimals;
+lpSupply = ERC20(lpToken).balanceOf(contractAddresses.masterChef) / ERC20(lpToken).decimals;
+lpValue = lpSupply * lpPrice[pid];
+
 if pool.type = 'red'
     poolWeight = YuanYangPot.poolInfo[pid].allocPoint * YuanYangPot.redPotShare / YuanYangPot.totalRedAllocPoint / 1e12;
 else
-    poolWeight = YuanYangPot.poolInfo[pid].allocPoint * (1 - YuanYangPot.redPotShare) / YuanYangPot.totalWhiteAllocPoint / 1e12;
+    poolWeight = YuanYangPot.poolInfo[pid].allocPoint * (1e12 - YuanYangPot.redPotShare) / YuanYangPot.totalWhiteAllocPoint / 1e12;
+
+
 (priceCumulative, blockTimestamp, twap) = ChefMao.getCurrentTwap();
 
 APY = twap * YuanYangPot.hotpotBasePerBlock * poolWeight * 2.4e6 / lpValue / 1e18;
