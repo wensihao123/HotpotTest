@@ -50,7 +50,6 @@ const PendingLpValues: React.FC = () => {
         }}
         separator=","
       />
-      USD
     </span>
   )
 }
@@ -70,7 +69,7 @@ const Home: React.FC = () => {
       </Container>
       <Spacer size="lg" />
       <StyledInfoLarge>
-        <b>Total Staked Value</b> <PendingLpValues />
+        <b>Total Value Locked</b><br/><PendingLpValues />
       </StyledInfoLarge>
       <StyledInfo>
         <b>Pro Tip</b>: Foods in 🌶️ Red soup have dedicated portion of POT
@@ -89,7 +88,7 @@ const Home: React.FC = () => {
 }
 const StyledInfoLarge = styled.h3`
   color: ${(props) => props.theme.color.grey[500]};
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 400;
   margin: 0 0 20px 0;
   padding: 0;
@@ -99,6 +98,7 @@ const StyledInfoLarge = styled.h3`
     color: ${(props) => props.theme.color.grey[600]};
   }
   .value {
+    font-size: 24px;
     font-weight: 600;
     color: ${(props) => props.theme.color.red[500]};
   }
