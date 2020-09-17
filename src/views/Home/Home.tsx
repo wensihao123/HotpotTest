@@ -18,10 +18,8 @@ const PendingLpValues: React.FC = () => {
   const allLpValues = useAllLpValues()
   let sumValues = 0
   for (let lpValue of allLpValues) {
-    console.log('lp:', lpValue)
     sumValues += lpValue
   }
-  console.log('sum:', sumValues)
 
   const [farms] = useFarms()
 

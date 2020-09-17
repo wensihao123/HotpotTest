@@ -90,7 +90,6 @@ const Balances: React.FC = () => {
     async function fetchTotalSupply() {
       const supply = await getSushiSupply(sushi)
       const potPerBlock = await getPotPerBlock(masterChefContract)
-      console.log(potPerBlock);
       setTotalSupply(supply)
       setPotPerBlock(potPerBlock)
     }
