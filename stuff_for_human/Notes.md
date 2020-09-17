@@ -1,3 +1,20 @@
+## Calculating APY (Annualized Percentage Yield)
+
+lpSupply = lpToken.balanceOf(address(YuanYangPot));
+lpValue = lpSupply * pool.lpPrice / pool.lpDecimals;
+if pool.type = 'red'
+    poolWeight = YuanYangPot.poolInfo[pid].allocPoint * YuanYangPot.redPotShare / YuanYangPot.totalRedAllocPoint / 1e12;
+else
+    poolWeight = YuanYangPot.poolInfo[pid].allocPoint * (1 - YuanYangPot.redPotShare) / YuanYangPot.totalWhiteAllocPoint / 1e12;
+(priceCumulative, blockTimestamp, twap) = ChefMao.getCurrentTwap();
+
+APY = twap * YuanYangPot.hotpotBasePerBlock * poolWeight * 2.4e6 / lpValue / 1e18;
+
+## Calculating TVL (Total Value Locked)
+
+TVL = Sum (lpValue)
+
+
 ## New YuanYangPot
 * Redirect Core contract to new Ropsten YuanYangPot: 0x62De147CCAFe5E928eD9B2e404bCb4dFA6BEFafD
 * New POT Token Contract: 0x62De147CCAFe5E928eD9B2e404bCb4dFA6BEFafD
@@ -13,4 +30,4 @@ YuanYangPot.poolInfo[3].isRed == true
 ## Ropsten Uniswap
 URL (Add Liquidity): https://app.uniswap.org/#/add/0x64bf48384C484a1dA5e1749Daef138733736D7Fb/0x759472D80851A7Df6Bc57AFAc4941614E756d331
 
-Customed Token List: ipfs://QmaR4F6DSrMBwXfJ6K9QZ7qrQX65HTDKbUVWExd4JxNsbe
+Customed Token List: ipfs://QmTP5SexML7frYAfdQ5KZjoLGt177Hb4H1vxAUsu8UWWc7
