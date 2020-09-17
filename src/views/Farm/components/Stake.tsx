@@ -59,6 +59,7 @@ const Stake: React.FC<StakeProps> = ({
 
   const [onPresentWithdraw] = useModal(
     <WithdrawModal
+      decimal={decimal}
       max={stakedBalance}
       onConfirm={onUnstake}
       tokenName={tokenName}

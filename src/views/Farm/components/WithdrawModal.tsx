@@ -8,12 +8,14 @@ import TokenInput from '../../../components/TokenInput'
 import { getFullDisplayBalance } from '../../../utils/formatBalance'
 
 interface WithdrawModalProps extends ModalProps {
+  decimal: number
   max: BigNumber
   onConfirm: (amount: string) => void
   tokenName?: string
 }
 
 const WithdrawModal: React.FC<WithdrawModalProps> = ({
+  decimal,
   onConfirm,
   onDismiss,
   max,
@@ -53,8 +55,9 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
           disabled={pendingTx}
           text={pendingTx ? 'Pending Confirmation' : 'Confirm'}
           onClick={async () => {
+            const valNumber = (Number(val) / (10 ** (18 - decimal))).toString()
             setPendingTx(true)
-            await onConfirm(val)
+            await onConfirm(valNumber)
             setPendingTx(false)
             onDismiss()
           }}
