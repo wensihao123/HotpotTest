@@ -1,6 +1,7 @@
 import BigNumber from 'bignumber.js/bignumber'
 import ERC20Abi from './abi/erc20.json'
 import MasterChefAbi from './abi/yuanyangpot.json' //*Changed sushi to hotpot
+import ChefMao from './abi/chefmao.json' //*Changed add chefmao contract
 import SushiAbi from './abi/erc20.json' //*Changed sushi to hotpot
 import UNIV2PairAbi from './abi/uni_v2_lp.json'
 import WETHAbi from './abi/weth.json'
@@ -24,6 +25,7 @@ export class Contracts {
     this.sushi = new this.web3.eth.Contract(SushiAbi)
     this.masterChef = new this.web3.eth.Contract(MasterChefAbi)
     this.weth = new this.web3.eth.Contract(WETHAbi)
+    this.chefMao = new this.web3.eth.Contract(ChefMao)
 
     this.pools = supportedPools.map((pool) =>
       Object.assign(pool, {
@@ -48,6 +50,7 @@ export class Contracts {
     setProvider(this.sushi, contractAddresses.sushi[networkId])
     setProvider(this.masterChef, contractAddresses.masterChef[networkId])
     setProvider(this.weth, contractAddresses.weth[networkId])
+    setProvider(this.chefMao, contractAddresses.chefmao[networkId])
 
     this.pools.forEach(
       ({ lpContract, lpAddress, tokenContract, tokenAddress }) => {

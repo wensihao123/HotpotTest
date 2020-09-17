@@ -38,6 +38,7 @@ export const addressMap = {
   SUSHIYCRV: '0x2C7a51A357d5739C5C74Bf3C96816849d2c9F726',
 }
 
+//* Changed 3 refers to Ropsten testnet
 export const contractAddresses = {
   sushi: {
     3: '0xdE1eF63b54B3E01E213d7B396dC828A7e12841F5',
@@ -48,6 +49,9 @@ export const contractAddresses = {
   weth: {
     3: '0x0a180A76e4466bF68A7F86fB029BEd3cCcFaAac5',
   },
+  chefmao: {
+    3: '0x15b11CC6f4BC910A993d72b51d06fC47adc65d9a'
+  }
 }
 
 /*

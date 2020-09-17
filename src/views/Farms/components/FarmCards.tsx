@@ -10,47 +10,39 @@ import CardIcon from '../../../components/CardIcon'
 import Loader from '../../../components/Loader'
 import Spacer from '../../../components/Spacer'
 import { Farm } from '../../../contexts/Farms'
-import useAllStakedValue, {
-  StakedValue,
-} from '../../../hooks/useAllStakedValue'
 import useFarms from '../../../hooks/useFarms'
 import useSushi from '../../../hooks/useSushi'
-import { getEarned, getMasterChefContract } from '../../../sushi/utils'
-import { bnToDec } from '../../../utils'
+import {
+  getMasterChefContract,
+  getPoolApyValue,
+  getChefMaoContract,
+} from '../../../sushi/utils'
 
-interface FarmWithStakedValue extends Farm, StakedValue {
-  apy: BigNumber
-}
+// interface FarmWithStakedValue extends Farm, StakedValue {
+//   apy: BigNumber
+// }
 
 const FarmCards: React.FC = () => {
   const [farms] = useFarms()
-  const { account } = useWallet()
-  const stakedValue = []
+  // const { account } = useWallet()
+  // const stakedValue = []
 
-  const sushiIndex = farms.findIndex(
-    ({ tokenSymbol }) => tokenSymbol === 'SUSHI',
-  )
+  // const sushiIndex = farms.findIndex(
+  //   ({ tokenSymbol }) => tokenSymbol === 'SUSHI',
+  // )
 
-  const sushiPrice = new BigNumber(0)
-    // sushiIndex >= 0 && stakedValue[sushiIndex]
-    //   ? stakedValue[sushiIndex].tokenPriceInWeth
-    //   : new BigNumber(0)
+  // const sushiPrice = new BigNumber(0)
+  // sushiIndex >= 0 && stakedValue[sushiIndex]
+  //   ? stakedValue[sushiIndex].tokenPriceInWeth
+  //   : new BigNumber(0)
 
-  const BLOCKS_PER_YEAR = new BigNumber(2336000)
-  const SUSHI_PER_BLOCK = new BigNumber(1000)
+  // const BLOCKS_PER_YEAR = new BigNumber(2336000)
+  // const SUSHI_PER_BLOCK = new BigNumber(1000)
 
-  const rows = farms.reduce<FarmWithStakedValue[][]>(
+  const rows = farms.reduce<Farm[][]>(
     (farmRows, farm, i) => {
       const farmWithStakedValue = {
         ...farm,
-        ...stakedValue[i],
-        apy: stakedValue[i]
-          ? sushiPrice
-              .times(SUSHI_PER_BLOCK)
-              .times(BLOCKS_PER_YEAR)
-              .times(stakedValue[i].poolWeight)
-              .div(stakedValue[i].totalWethValue)
-          : null,
       }
       const newFarmRows = [...farmRows]
       if (newFarmRows[newFarmRows.length - 1].length === 3) {
@@ -86,12 +78,13 @@ const FarmCards: React.FC = () => {
 }
 
 interface FarmCardProps {
-  farm: FarmWithStakedValue
+  farm: Farm
 }
 
 const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   const [startTime, setStartTime] = useState(0)
-  const [harvestable, setHarvestable] = useState(0)
+  // const [harvestable, setHarvestable] = useState(0)
+  const [apyValue, setApyValue] = useState(0)
 
   const { account } = useWallet()
   const { lpTokenAddress } = farm
@@ -110,19 +103,20 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
   }
 
   useEffect(() => {
-    async function fetchEarned() {
-      if (sushi) return
-      const earned = await getEarned(
+    async function fetchApy() {
+    const apy = await getPoolApyValue(
         getMasterChefContract(sushi),
-        lpTokenAddress,
-        account,
+        farm.lpContract,
+        getChefMaoContract(sushi),
+        farm.pid,
+        farm.type,
       )
-      setHarvestable(bnToDec(earned))
+      setApyValue(apy)
     }
     if (sushi && account) {
-      fetchEarned()
+      fetchApy()
     }
-  }, [sushi, lpTokenAddress, account, setHarvestable])
+  }, [sushi, lpTokenAddress, account, setApyValue])
 
   const poolActive = true // startTime * 1000 - Date.now() <= 0
   //*Changed add type dot
@@ -158,6 +152,18 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                 />
               )}
             </Button>
+            <StyledInsight>
+              <span>APY</span>
+              <span>
+                {apyValue
+                  ? `${new BigNumber(apyValue)
+                      .times(new BigNumber(100))
+                      .toNumber()
+                      .toLocaleString('en-US')
+                      .slice(0, -1)}%`
+                  : 'Loading ...'}
+              </span>
+            </StyledInsight>
           </StyledContent>
         </CardContent>
       </Card>

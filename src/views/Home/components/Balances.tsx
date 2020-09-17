@@ -10,7 +10,7 @@ import Spacer from '../../../components/Spacer'
 import Value from '../../../components/Value'
 import SushiIcon from '../../../components/SushiIcon'
 import useAllEarnings from '../../../hooks/useAllEarnings'
-import useAllStakedValue from '../../../hooks/useAllStakedValue'
+
 import useFarms from '../../../hooks/useFarms'
 import useTokenBalance from '../../../hooks/useTokenBalance'
 import useSushi from '../../../hooks/useSushi'
@@ -24,6 +24,7 @@ import {
   getBalanceNumber,
   getBalanceNumberFixed,
 } from '../../../utils/formatBalance'
+
 
 const PendingRewards: React.FC = () => {
   const [start, setStart] = useState(0)

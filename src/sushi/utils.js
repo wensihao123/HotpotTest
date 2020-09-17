@@ -1,8 +1,9 @@
 import BigNumber from 'bignumber.js'
 import { ethers } from 'ethers'
 import { tipTo } from './lib/constants'
+import { lpPrice } from './lib/lpPrice'
 
-const Web3 = require('web3');
+const Web3 = require('web3')
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
   DECIMAL_PLACES: 80,
@@ -21,6 +22,9 @@ export const getMasterChefAddress = (sushi) => {
 export const getSushiAddress = (sushi) => {
   return sushi && sushi.sushiAddress
 }
+export const getChefMaoAddress = (sushi) => {
+  return sushi && sushi.chefMaoAddress
+}
 export const getWethContract = (sushi) => {
   return sushi && sushi.contracts && sushi.contracts.weth
 }
@@ -30,6 +34,9 @@ export const getMasterChefContract = (sushi) => {
 }
 export const getSushiContract = (sushi) => {
   return sushi && sushi.contracts && sushi.contracts.sushi
+}
+export const getChefMaoContract = (sushi) => {
+  return sushi && sushi.contracts && sushi.contracts.chefMao
 }
 
 export const getFarms = (sushi) => {
@@ -59,7 +66,7 @@ export const getFarms = (sushi) => {
           earnToken: 'pot',
           earnTokenAddress: sushi.contracts.sushi.options.address,
           icon,
-          type
+          type,
         }),
       )
     : []
@@ -83,6 +90,48 @@ export const isInCircuitBreaker = async (masterChefContract) => {
 
 export const getPotPerBlock = async (masterChefContract) => {
   return masterChefContract.methods.hotpotBasePerBlock().call() //*Changed add PotPerBlock method call
+}
+
+export const getLpValue = async (lpContract, masterChefContract, pid) => {
+  const lpSupply = await lpContract.methods
+    .balanceOf(masterChefContract.options.address)
+    .call()
+  const lpDecimal = await lpContract.methods.decimals().call()
+  const lpValue = (lpSupply * lpPrice[pid].pirce) / 10 ** lpDecimal
+  return lpValue
+}
+
+//*Changed Add apy calculation
+export const getPoolApyValue = async (
+  masterChefContract,
+  lpContract,
+  chefMaoContract,
+  pid,
+  poolType,
+) => {
+  const lpValue = await getLpValue(lpContract, masterChefContract, pid)
+  const poolInfo = await masterChefContract.methods.poolInfo(pid).call()
+  const allocPoint = poolInfo[1]
+  const redPotShare = await masterChefContract.methods.redPotShare().call()
+  let poolWeight
+  if (poolType === 'red') {
+    const totalRedAllocPoint = await masterChefContract.methods
+      .totalRedAllocPoint()
+      .call()
+    poolWeight = (allocPoint * redPotShare) / totalRedAllocPoint / 1e12
+  } else {
+    const totalWhiteAllocPoint = await masterChefContract.methods
+      .totalWhiteAllocPoint()
+      .call()
+    poolWeight =
+      (allocPoint * (1e12 - redPotShare)) / totalWhiteAllocPoint / 1e12
+  }
+  const twap =
+    (await chefMaoContract.methods.getCurrentTwap().call()).twap / 1e18
+  const potPerBlock =
+    (await masterChefContract.methods.hotpotBasePerBlock().call()) / 1e18
+  const apy = (twap * potPerBlock * poolWeight * 2.4e6) / lpValue
+  return apy
 }
 
 export const getTotalLPWethValue = async (

@@ -8,6 +8,7 @@ const theme = {
   color: {
     black,
     grey,
+    red,
     primary: {
       light: red[200],
       main: red[500],
