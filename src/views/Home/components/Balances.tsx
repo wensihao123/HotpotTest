@@ -22,7 +22,7 @@ import {
 } from '../../../sushi/utils'
 import {
   getBalanceNumber,
-  getDisplayBalance,
+  getBalanceNumberFixed,
 } from '../../../utils/formatBalance'
 
 const PendingRewards: React.FC = () => {
@@ -89,6 +89,7 @@ const Balances: React.FC = () => {
     async function fetchTotalSupply() {
       const supply = await getSushiSupply(sushi)
       const potPerBlock = await getPotPerBlock(masterChefContract)
+      console.log(potPerBlock);
       setTotalSupply(supply)
       setPotPerBlock(potPerBlock)
     }
@@ -134,8 +135,8 @@ const Balances: React.FC = () => {
           New Rewards per Block
           <FootnoteValue>
             {potPerBlock
-              ? getBalanceNumber(new BigNumber(potPerBlock))
-              : 'Locked'}{' '}
+              ? getBalanceNumberFixed(new BigNumber(potPerBlock))
+              : 'Locked'}
             POT
           </FootnoteValue>
         </Footnote>
