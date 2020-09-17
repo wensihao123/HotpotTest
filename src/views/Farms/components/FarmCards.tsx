@@ -275,13 +275,13 @@ const StyledInsight = styled.div`
   justify-content: space-between;
   box-sizing: border-box;
   border-radius: 8px;
-  background: #fffdfa;
-  color: #aa9584;
+  background: transparent;
+  color: #793526;
   width: 100%;
   margin-top: 12px;
   line-height: 32px;
   font-size: 13px;
-  border: 1px solid #e6dcd5;
+  border: 1px solid #dabdb8;
   text-align: center;
   padding: 0 12px;
 `
