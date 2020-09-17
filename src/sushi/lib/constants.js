@@ -40,13 +40,13 @@ export const addressMap = {
 
 export const contractAddresses = {
   sushi: {
-    3: '0x759472D80851A7Df6Bc57AFAc4941614E756d331',
+    3: '0xdE1eF63b54B3E01E213d7B396dC828A7e12841F5',
   },
   masterChef: {
-    3: '0x62De147CCAFe5E928eD9B2e404bCb4dFA6BEFafD',
+    3: '0x942Aa339B7ab2027c88F2F02883dB5909ebBB23a',
   },
   weth: {
-    3: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
+    3: '0x0a180A76e4466bF68A7F86fB029BEd3cCcFaAac5',
   },
 }
 
@@ -72,24 +72,10 @@ export const supportedPools = [
   {
     pid: 0,
     lpAddresses: {
-      3: '0xD8eF1a5c3aAE91C97AC97e895A2b2477d30ca746',
+      3: '0x58BD1b77488A8d4899ec31b0B2aF2872a4F9E4Cf',
     },
     tokenAddresses: {
-      3: '0xD8eF1a5c3aAE91C97AC97e895A2b2477d30ca746',
-    },
-    name: 'Plain Potato',
-    symbol: 'HGB',
-    tokenSymbol: 'HGB',
-    icon: '🥔',
-    type: 'white'
-  },
-  {
-    pid: 1,
-    lpAddresses: {
-      3: '0x64bf48384C484a1dA5e1749Daef138733736D7Fb',
-    },
-    tokenAddresses: {
-      3: '0x64bf48384C484a1dA5e1749Daef138733736D7Fb',
+      3: '0x58BD1b77488A8d4899ec31b0B2aF2872a4F9E4Cf',
     },
     name: "Uncle Sam's Corn",
     symbol: 'USDT',
@@ -98,12 +84,12 @@ export const supportedPools = [
     type: 'white'
   },
   {
-    pid: 2,
+    pid: 1,
     lpAddresses: {
-      3: '0xe210eE4bae1DFbaF11305D94DBCFE878bDB8C09d',
+      3: '0x0a180A76e4466bF68A7F86fB029BEd3cCcFaAac5',
     },
     tokenAddresses: {
-      3: '0xe210eE4bae1DFbaF11305D94DBCFE878bDB8C09d',
+      3: '0x0a180A76e4466bF68A7F86fB029BEd3cCcFaAac5',
     },
     name: 'Wrapped Eggplant',
     symbol: 'WETH',
@@ -112,12 +98,12 @@ export const supportedPools = [
     type: 'white'
   },
   {
-    pid: 3,
+    pid: 2,
     lpAddresses: {
-      3: '0x759472D80851A7Df6Bc57AFAc4941614E756d331',
+      3: '0xdE1eF63b54B3E01E213d7B396dC828A7e12841F5',
     },
     tokenAddresses: {
-      3: '0x759472D80851A7Df6Bc57AFAc4941614E756d331',
+      3: '0xdE1eF63b54B3E01E213d7B396dC828A7e12841F5',
     },
     name: 'Double Boiling Pot',
     symbol: 'POT',
@@ -126,12 +112,12 @@ export const supportedPools = [
     type: 'red'
   },
   {
-    pid: 4,
+    pid: 3,
     lpAddresses: {
-      3: '0x3F17f8599B78870CD618E4B6C1DA2e517782c5dd',
+      3: '0x1b0751fB3aDC6B0a1D5B8d40e4e7a1D2971e0ba5',
     },
     tokenAddresses: {
-      3: '0x759472D80851A7Df6Bc57AFAc4941614E756d331',
+      3: '0xdE1eF63b54B3E01E213d7B396dC828A7e12841F5',
     },
     name: 'Mala Lobster',
     symbol: 'USDT-POT UNI-V2',

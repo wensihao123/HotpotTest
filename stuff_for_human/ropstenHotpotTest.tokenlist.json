@@ -1,6 +1,6 @@
 {
-    "name": "RopstenHotpot2",
-    "logoURI": "ipfs://QmUSNbwUxUYNMvMksKypkgWs8unSm8dX2GjCPBVGZ7GGMr",
+    "name": "Hotpot_Ropsten",
+    "logoURI": "ipfs://QmVZBF1iQjdEDewa2DW72kzQszYuBRvjQuAqjmBVfWCNRU",
     "keywords": [
       "audited",
       "verified",
@@ -25,6 +25,24 @@
         "name": "Hotpot Base Token",
         "decimals": 18,
         "logoURI": "ipfs://QmUSNbwUxUYNMvMksKypkgWs8unSm8dX2GjCPBVGZ7GGMr",
+        "tags": []
+      },
+      {
+        "chainId": 3,
+        "address": "0x58BD1b77488A8d4899ec31b0B2aF2872a4F9E4Cf",
+        "symbol": "USDT",
+        "name": "TetherToken",
+        "decimals": 6,
+        "logoURI": "ipfs://QmXfzKRvjZz3u5JRgC4v5mGVbm9ahrUiB4DgzHBsnWbTMM",
+        "tags": []
+      },
+      {
+        "chainId": 3,
+        "address": "0xdE1eF63b54B3E01E213d7B396dC828A7e12841F5",
+        "symbol": "POT",
+        "name": "Hotpot Base Token",
+        "decimals": 18,
+        "logoURI": "ipfs://QmVZBF1iQjdEDewa2DW72kzQszYuBRvjQuAqjmBVfWCNRU",
         "tags": []
       }
     ],
