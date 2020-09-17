@@ -55,7 +55,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
           disabled={pendingTx}
           text={pendingTx ? 'Pending Confirmation' : 'Confirm'}
           onClick={async () => {
-            const valNumber = (Number(val) / (10 ** (18 - decimal))).toString()
+            const valNumber = new BigNumber(val).dividedBy(new BigNumber(10).exponentiatedBy(18 - decimal)).toString()
             setPendingTx(true)
             await onConfirm(valNumber)
             setPendingTx(false)
