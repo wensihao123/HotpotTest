@@ -159,8 +159,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                   ? `${new BigNumber(apyValue)
                       .times(new BigNumber(100))
                       .toNumber()
-                      .toLocaleString('en-US')
-                      .slice(0, -4)}%`
+                      .toLocaleString('en-US', {maximumFractionDigits: 0})}%`
                   : 'Loading ...'}
               </span>
             </StyledInsight>
