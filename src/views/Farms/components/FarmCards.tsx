@@ -160,7 +160,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm }) => {
                       .times(new BigNumber(100))
                       .toNumber()
                       .toLocaleString('en-US')
-                      .slice(0, -1)}%`
+                      .slice(0, -4)}%`
                   : 'Loading ...'}
               </span>
             </StyledInsight>
@@ -204,10 +204,10 @@ const StyledCardAccent = styled.div`
   border-radius: 12px;
   filter: blur(6px);
   position: absolute;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
   z-index: -1;
 `
 
@@ -276,12 +276,12 @@ const StyledInsight = styled.div`
   box-sizing: border-box;
   border-radius: 8px;
   background: transparent;
-  color: #793526;
+  color: ${(props) => props.theme.color.grey[500]};
   width: 100%;
   margin-top: 12px;
   line-height: 32px;
   font-size: 13px;
-  border: 1px solid #dabdb8;
+  border: none;
   text-align: center;
   padding: 0 12px;
 `

@@ -63,13 +63,15 @@ const Home: React.FC = () => {
         title="Hotpot is Boiling"
         subtitle="Stake eligible tokens to claim Hotpot Base Tokens (POT)!"
       />
-
       <Container>
         <Balances />
       </Container>
       <Spacer size="lg" />
+      <StyledInfo>
+        Total Value Locked
+      </StyledInfo>
       <StyledInfoLarge>
-        <b>Total Value Locked</b><br/><PendingLpValues />
+        <PendingLpValues />
       </StyledInfoLarge>
       <StyledInfo>
         <b>Pro Tip</b>: Foods in 🌶️ Red soup have dedicated portion of POT
@@ -88,7 +90,7 @@ const Home: React.FC = () => {
 }
 const StyledInfoLarge = styled.h3`
   color: ${(props) => props.theme.color.grey[500]};
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 400;
   margin: 0 0 20px 0;
   padding: 0;
@@ -98,7 +100,7 @@ const StyledInfoLarge = styled.h3`
     color: ${(props) => props.theme.color.grey[600]};
   }
   .value {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 600;
     color: ${(props) => props.theme.color.red[500]};
   }
