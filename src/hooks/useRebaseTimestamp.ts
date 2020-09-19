@@ -25,7 +25,6 @@ const useRebaseTimestamp = () => {
         fetchRebaseTimestamp()
     }
   }, [account, chefMaoContract, setRebaseTimestamp, setCanRebase ,sushi])
-  // console.log(rebaseTimestamp, canRebase)
   return [rebaseTimestamp, (rebaseTimestamp[0] > rebaseTimestamp[1])]
 }
 

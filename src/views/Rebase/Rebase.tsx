@@ -37,15 +37,17 @@ const Rebase: React.FC = () => {
                 : 'Loading...'}
             </StyledInfoLarge>
           </Container>
+          <Spacer size="lg" />
           <Container>
             <StatusGrid />
           </Container>
-          <Spacer size="md" />
+          <Spacer size="lg" />
+          <Spacer size="lg" />
           <StyledInfo>
             🛡️ Rebasing only affects POT production
             rate. Your wallet balances are SAFU!
           </StyledInfo>
-          <Spacer size="md" />
+          <Spacer size="lg" />
           <div
             style={{
               margin: '0 auto',
