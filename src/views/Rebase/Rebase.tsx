@@ -11,10 +11,14 @@ import StatusGrid from './components/StatusGrid'
 import WalletProviderModal from '../../components/WalletProviderModal'
 import useModal from '../../hooks/useModal'
 import useRebaseTimestamp from '../../hooks/useRebaseTimestamp'
+import {rebase, getChefMaoContract} from '../../sushi/utils'
+import useSushi from '../../hooks/useSushi'
 
 //*Changed home page text
 const Rebase: React.FC = () => {
   const { account } = useWallet()
+  const sushi = useSushi()
+  const chefMaoContract = getChefMaoContract(sushi)
   const [rebaseTimestamp, canRebase] = useRebaseTimestamp()
   const [onPresentWalletProviderModal] = useModal(<WalletProviderModal />)
 
@@ -51,7 +55,7 @@ const Rebase: React.FC = () => {
               margin: '0 auto',
             }}
           >
-            <Button text="👩‍🍳 Rebase" to="/farms" variant="secondary" disabled ={!canRebase}/>
+            <Button text="👩‍🍳 Rebase" onClick={() => rebase(chefMaoContract, account)} variant="secondary" disabled ={!canRebase}/>
           </div>
         </>
       ) : (

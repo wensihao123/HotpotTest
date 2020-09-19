@@ -167,6 +167,12 @@ export const getNewHotpotBasePerBlock = async (chefMaoContract, twap) => {
   return projectedReward
 }
 
+export const rebase = async (chefMaoContract, account) => {
+  return chefMaoContract.methods
+    .rebase()
+    .send({ from: account })
+}
+
 export const getTotalLPWethValue = async (
   masterChefContract,
   wethContract,
