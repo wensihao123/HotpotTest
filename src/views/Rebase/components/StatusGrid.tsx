@@ -36,7 +36,6 @@ const StatusGrid: React.FC = () => {
   const [projectedReward, setProjectedReward] = useState(0)
   const [rebaseTimestamp] = useRebaseTimestamp()
   const sushi = useSushi()
-  const sushiBalance = useTokenBalance(getSushiAddress(sushi))
   const masterChefContract = getMasterChefContract(sushi)
   const chefMaoContract = getChefMaoContract(sushi)
   const { account, ethereum }: { account: any; ethereum: any } = useWallet()
