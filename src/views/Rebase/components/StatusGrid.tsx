@@ -78,14 +78,14 @@ const StatusGrid: React.FC = () => {
                 <span
                   role="img"
                   style={{
-                    fontSize: 26,
+                    fontSize: 32,
                   }}
                 >
                   💰
                 </span>
                 <Spacer />
                 <div style={{ flex: 1 }}>
-                  <Label text="Current Price (Time-weighted)" />
+                  <Label text="Current Price (TWAP)" />
                   <Value
                     value={
                       !!account && twap[2]
@@ -98,10 +98,10 @@ const StatusGrid: React.FC = () => {
             </StyledBalances>
           </CardContent>
           <Footnote>
-            Last updated at
+            Last update at
             <FootnoteValue>
               {twap[1]
-                ? moment(twap[1] * 1000).format('YYYY-MM-DD, hh:mm:ss')
+                ? moment(twap[1] * 1000).format('YYYY-MM-DD hh:mm:ss')
                 : 'Locked'}
             </FootnoteValue>
           </Footnote>
@@ -114,7 +114,7 @@ const StatusGrid: React.FC = () => {
                 <span
                   role="img"
                   style={{
-                    fontSize: 26,
+                    fontSize: 32,
                   }}
                 >
                   🎯
@@ -138,11 +138,11 @@ const StatusGrid: React.FC = () => {
             </StyledBalances>
           </CardContent>
           <Footnote>
-            Last rebased at
+            Last rebasing at
             <FootnoteValue>
               {(rebaseTimestamp as Array<number>).length
                 ? moment(rebaseTimestamp[0] * 1000).format(
-                    'YYYY-MM-DD, hh:mm:ss',
+                    'YYYY-MM-DD hh:mm:ss',
                   )
                 : 'Locked'}
             </FootnoteValue>
@@ -158,10 +158,10 @@ const StatusGrid: React.FC = () => {
                 <span
                   role="img"
                   style={{
-                    fontSize: 26,
+                    fontSize: 32,
                   }}
                 >
-                  🍲
+                  🧮
                 </span>
                 <Spacer />
                 <div style={{ flex: 1 }}>
@@ -176,7 +176,7 @@ const StatusGrid: React.FC = () => {
             </StyledBalances>
           </CardContent>
           <Footnote>
-            Current Market Value
+            Market Value
             <FootnoteValue>
               {!!account && twap[2]
                 ? `$${getDisplayBalance(
@@ -196,10 +196,10 @@ const StatusGrid: React.FC = () => {
                 <span
                   role="img"
                   style={{
-                    fontSize: 26,
+                    fontSize: 32,
                   }}
                 >
-                  🥢
+                  🍲
                 </span>
                 <Spacer />
                 <div style={{ flex: 1 }}>
@@ -208,8 +208,8 @@ const StatusGrid: React.FC = () => {
                     value={
                       potPerBlock
                         ? `${getBalanceNumberFixed(
-                            new BigNumber(potPerBlock),
-                          )}POT`
+                            new BigNumber(potPerBlock)
+                          )} POT`
                         : 'Locked'
                     }
                   />
@@ -221,9 +221,10 @@ const StatusGrid: React.FC = () => {
             Projected rewards per block
             <FootnoteValue>
               {projectedReward[0]
-                ? getBalanceNumberFixed(new BigNumber(projectedReward[0]))
-                : 'Locked'}
-              POT
+                ? `${getBalanceNumberFixed(
+                    new BigNumber(projectedReward[0])
+                  )} POT`
+                : 'Locked'}              
             </FootnoteValue>
           </Footnote>
         </Card>

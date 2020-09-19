@@ -30,7 +30,7 @@ const TopBar: React.FC<TopBarProps> = ({ onPresentMobileMenu }) => {
 }
 
 const StyledLogoWrapper = styled.div`
-  width: 260px;
+  width: 160px;
   @media (max-width: 400px) {
     width: auto;
   }
