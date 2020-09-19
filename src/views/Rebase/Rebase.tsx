@@ -22,18 +22,19 @@ const Rebase: React.FC = () => {
   const [rebaseTimestamp, canRebase] = useRebaseTimestamp()
   const [onPresentWalletProviderModal] = useModal(<WalletProviderModal />)
 
-
-
   return (
     <Page>
       {!!account ? (
         <>
           <Container>
+            <Spacer size="lg" />
             <StyledIcon>👩‍🍳</StyledIcon>
             <StyledTitle>Next Rebasing at</StyledTitle>
             <StyledInfoLarge>
               {(rebaseTimestamp as Array<number>).length
-                ? moment(rebaseTimestamp[1]*1000).format('YYYY-MM-DD HH:mm:ss')
+                ? moment(rebaseTimestamp[1] * 1000).format(
+                    'YYYY-MM-DD HH:mm:ss',
+                  )
                 : 'Loading...'}
             </StyledInfoLarge>
           </Container>
@@ -43,8 +44,8 @@ const Rebase: React.FC = () => {
           </Container>
           <Spacer size="lg" />
           <StyledInfo>
-            🛡️ Rebasing only affects POT production
-            rate. Your wallet balances are SAFU!
+            🛡️ Rebasing only affects POT production rate. Your wallet balances
+            are SAFU!
           </StyledInfo>
           <Spacer size="lg" />
           <div
@@ -52,35 +53,37 @@ const Rebase: React.FC = () => {
               margin: '0 auto',
             }}
           >
-            <Button text="👩‍🍳 Rebase" 
-              onClick={() => rebase(chefMaoContract, account)} 
-              variant="secondary" 
-              disabled={!canRebase} />
+            <Button
+              text="👩‍🍳 Rebase"
+              onClick={() => rebase(chefMaoContract, account)}
+              variant="secondary"
+              disabled={!canRebase}
+            />
           </div>
         </>
       ) : (
-          <div
-            style={{
-              alignItems: 'center',
-              display: 'flex',
-              flex: 1,
-              justifyContent: 'center',
-            }}
-          >
-            <Button
-              onClick={onPresentWalletProviderModal}
-              text="🔓 Unlock Wallet"
-            />
-          </div>
-        )}
+        <div
+          style={{
+            alignItems: 'center',
+            display: 'flex',
+            flex: 1,
+            justifyContent: 'center',
+          }}
+        >
+          <Button
+            onClick={onPresentWalletProviderModal}
+            text="🔓 Unlock Wallet"
+          />
+        </div>
+      )}
     </Page>
   )
 }
 const StyledInfoLarge = styled.h3`
   color: ${(props) => props.theme.color.red[500]};
-  font-size: 36px;
+  font-size: 30px;
   font-weight: 600;
-  margin: 0 0 20px 0;
+  margin: 0 0 7px 0;
   padding: 0;
   text-align: center;
 
