@@ -37,11 +37,10 @@ const Rebase: React.FC = () => {
                 : 'Loading...'}
             </StyledInfoLarge>
           </Container>
-          <Spacer size="lg" />
+          <Spacer size="md" />
           <Container>
             <StatusGrid />
           </Container>
-          <Spacer size="lg" />
           <Spacer size="lg" />
           <StyledInfo>
             🛡️ Rebasing only affects POT production
