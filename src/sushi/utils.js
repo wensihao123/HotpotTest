@@ -136,6 +136,37 @@ export const getPoolApyValue = async (
   return apy
 }
 
+//*Changed Add rebase timestamp calculation
+export const getRebaseTimestamp = async (chefMaoContract) => {
+  const lastRebaseTimestamp = Number(await chefMaoContract.methods.lastRebaseTimestamp().call())
+  const rebaseWindowOffset = Number(await chefMaoContract.methods.rebaseWindowOffsetSec().call())
+  const rebaseInterval = Number(await chefMaoContract.methods.minRebaseTimeIntervalSec().call())
+  const nextRebaseTimestamp = lastRebaseTimestamp - (lastRebaseTimestamp % rebaseInterval) + rebaseWindowOffset
+  return [lastRebaseTimestamp, nextRebaseTimestamp]
+}
+
+
+export const inRebaseWindow = async (chefMaoContract) => {
+  const inRebaseWindow = await chefMaoContract.methods.inRebaseWindow().call()
+  return inRebaseWindow
+}
+
+//*Changed Twap returned value [priceCumulative, blockTimestamp, twap]
+export const getCurrentTwap = async (chefMaoContract) => {
+  const currentTwap = await chefMaoContract.methods.getCurrentTwap().call()
+  return currentTwap
+}
+
+export const getTargetPrice = async (chefMaoContract) => {
+  const targetPrice = await chefMaoContract.methods.targetPrice().call()
+  return targetPrice
+}
+
+export const getNewHotpotBasePerBlock = async (chefMaoContract, twap) => {
+  const projectedReward = await chefMaoContract.methods.getNewHotpotBasePerBlock(twap).call()
+  return projectedReward
+}
+
 export const getTotalLPWethValue = async (
   masterChefContract,
   wethContract,

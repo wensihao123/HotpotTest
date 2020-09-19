@@ -129,7 +129,7 @@ const Balances: React.FC = () => {
             {potPerBlock
               ? getBalanceNumberFixed(new BigNumber(potPerBlock))
               : 'Locked'}
-            POT
+            {' POT'}
           </FootnoteValue>
         </Footnote>
       </Card>

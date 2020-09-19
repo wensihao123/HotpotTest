@@ -9,7 +9,7 @@ const Nav: React.FC = () => {
         target="_blank"
         href="https://etherscan.io/address/0xc2edad668740f1aa35e4d8f227fb8e17dca888cd#code"
       >
-        MasterChef Contract
+        Yuanyangpot Contract
       </StyledLink>
       <StyledLink
         target="_blank"
@@ -18,10 +18,10 @@ const Nav: React.FC = () => {
         POT Token
       </StyledLink>
       <StyledLink target="_blank" href="https://discord.gg/hJ2p555">
-        Discord
+        Github
       </StyledLink>
       <StyledLink target="_blank" href="https://github.com/sushiswap">
-        Github
+        Telegram
       </StyledLink>
       <StyledLink target="_blank" href="https://twitter.com/sushiswap">
         Twitter
