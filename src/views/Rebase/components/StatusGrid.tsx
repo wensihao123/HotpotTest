@@ -149,7 +149,7 @@ const StatusGrid: React.FC = () => {
           </Footnote>
         </Card>
       </StyledWrapper>
-      <Spacer size="lg" />
+      <Spacer size="md" />
       <StyledWrapper>
         <Card>
           <CardContent>
