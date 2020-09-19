@@ -142,7 +142,7 @@ const StatusGrid: React.FC = () => {
             Last rebased at
             <FootnoteValue>
               {(rebaseTimestamp as Array<number>).length
-                ? moment(rebaseTimestamp[1] * 1000).format(
+                ? moment(rebaseTimestamp[0] * 1000).format(
                     'YYYY-MM-DD, hh:mm:ss',
                   )
                 : 'Locked'}
