@@ -34,7 +34,7 @@ const Rebase: React.FC = () => {
             <StyledTitle>Next Rebasing at</StyledTitle>
             <StyledInfoLarge>
               {(rebaseTimestamp as Array<number>).length
-                ? moment(rebaseTimestamp[1]*1000).format('YYYY-MM-DD hh:mm:ss')
+                ? moment(rebaseTimestamp[1]*1000).format('YYYY-MM-DD HH:MM:SS')
                 : 'Loading...'}
             </StyledInfoLarge>
             <Spacer />
