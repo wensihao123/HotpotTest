@@ -29,25 +29,23 @@ const Rebase: React.FC = () => {
       {!!account ? (
         <>
           <Container>
-            <Spacer size="lg" />
             <StyledIcon>👩‍🍳</StyledIcon>
             <StyledTitle>Next Rebasing at</StyledTitle>
             <StyledInfoLarge>
               {(rebaseTimestamp as Array<number>).length
-                ? moment(rebaseTimestamp[1]*1000).format('YYYY-MM-DD hh:mm:ss')
+                ? moment(rebaseTimestamp[1]*1000).format('YYYY-MM-DD HH:mm:ss')
                 : 'Loading...'}
             </StyledInfoLarge>
-            <Spacer />
           </Container>
           <Container>
             <StatusGrid />
           </Container>
-          <Spacer size="lg" />
+          <Spacer size="md" />
           <StyledInfo>
             🛡️ Rebasing only affects POT production
             rate. Your wallet balances are SAFU!
           </StyledInfo>
-          <Spacer size="lg" />
+          <Spacer size="md" />
           <div
             style={{
               margin: '0 auto',
