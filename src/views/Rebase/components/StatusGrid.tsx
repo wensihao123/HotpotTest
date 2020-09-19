@@ -101,7 +101,7 @@ const StatusGrid: React.FC = () => {
             Last update at
             <FootnoteValue>
               {twap[1]
-                ? moment(twap[1] * 1000).format('YYYY-MM-DD HH:MM:SS')
+                ? moment(twap[1] * 1000).format('YYYY-MM-DD HH:mm:ss')
                 : 'Locked'}
             </FootnoteValue>
           </Footnote>
@@ -142,7 +142,7 @@ const StatusGrid: React.FC = () => {
             <FootnoteValue>
               {(rebaseTimestamp as Array<number>).length
                 ? moment(rebaseTimestamp[0] * 1000).format(
-                    'YYYY-MM-DD HH:MM:SS',
+                    'YYYY-MM-DD HH:mm:ss',
                   )
                 : 'Locked'}
             </FootnoteValue>
