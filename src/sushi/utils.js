@@ -142,7 +142,6 @@ export const getRebaseTimestamp = async (chefMaoContract) => {
   const rebaseWindowOffset = Number(await chefMaoContract.methods.rebaseWindowOffsetSec().call())
   const rebaseInterval = Number(await chefMaoContract.methods.minRebaseTimeIntervalSec().call())
   const nextRebaseTimestamp = lastRebaseTimestamp - ((lastRebaseTimestamp - rebaseWindowOffset) % rebaseInterval) + rebaseInterval
-  console.log(lastRebaseTimestamp, nextRebaseTimestamp)
   return [lastRebaseTimestamp, nextRebaseTimestamp]
 }
 
