@@ -8,6 +8,7 @@ import Spacer from '../../components/Spacer'
 import useFarm from '../../hooks/useFarm'
 import useRedeem from '../../hooks/useRedeem'
 import useSushi from '../../hooks/useSushi'
+import usePoolState from '../../hooks/usePoolState'
 import { getMasterChefContract } from '../../sushi/utils'
 import { getContract } from '../../utils/erc20'
 import Harvest from './components/Harvest'
@@ -56,6 +57,8 @@ const Farm: React.FC = () => {
     return earnToken.toUpperCase()
   }, [earnToken])
 
+  const isInCircuitBreaker = usePoolState()
+
   return (
     <>
       <PageHeader
@@ -80,7 +83,10 @@ const Farm: React.FC = () => {
         </StyledCardsWrapper>
         <Spacer size="lg" />
         <StyledInfo>
-          ⭐️ Every time you harvest POTs, the shop owner will receive extra tips! Join the Franchise
+          {isInCircuitBreaker ?
+            '🛑 POT harvesting is paused during Circuit Breaker. Check back upon next Rebasing' :
+            '⭐️ Every time you harvest POTs, the shop owner will receive extra tips! Join the Franchise'
+          }
         </StyledInfo>
         <Spacer size="lg" />
       </StyledFarm>
